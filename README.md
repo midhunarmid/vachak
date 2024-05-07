@@ -2,7 +2,7 @@
 
 Welcome to Vachak - the word puzzle! This is an open-source educational game application aimed at helping users improve their language skills through fun and interactive gameplay.
 
-![Vachak - The Word Puzzle](link-to-app-screenshot)
+![Vachak - The Word Puzzle](https://github.com/midhunarmid/vachak/blob/master/vachak-banner.jpeg?raw=true)
 
 ## About
 Vachak - the word puzzle! is designed to make language learning enjoyable and engaging. Users can practice sentence creation and word arrangement in different languages, including English and Malayalam. The application offers various game modes, such as Quick Play, Time Trial, and Multiplayer, to cater to users of all skill levels.
