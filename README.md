@@ -35,7 +35,7 @@ To get started with Vachak - the word puzzle!, follow these steps:
    ```
 
 ## Contributing
-We welcome contributions from the community! Whether you're a seasoned Flutter developer or just getting started, there are plenty of ways to get involved. Check out our [Contributing Guidelines](link-to-contributing-guidelines) for more information.
+We welcome contributions from the community! Whether you're a seasoned Flutter developer or just getting started, there are plenty of ways to get involved. Check out our [Contributing Guidelines](https://github.com/midhunarmid/vachak/blob/master/CONTRIBUTORS.md) for more information.
 
 ## License
 This project is licensed under the GNU General Public License version 3 (GPL-3.0) to provide users with the freedom to use, modify, and distribute software while ensuring that those freedoms are preserved for future users.
