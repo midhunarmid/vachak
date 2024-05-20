@@ -3,7 +3,7 @@ class MessageGenerator {
     "en": {
       "un-expected-error": "Some un expected error happened!",
       "un-expected-error-message": "Some un expected error happened!",
-      "auth-welcome": "Input your credentials here to log in to the system.",
+      "auth-welcome": "Vachak - The Word Puzzle!",
       "auth-visit-site-guide":
           "To explore in-depth instructions for utilizing this rapid starter Flutter project, head over to https://github.com/midhunarmid/flutter_util_hub to kick off your journey.",
     }
