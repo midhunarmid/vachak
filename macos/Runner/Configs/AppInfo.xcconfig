@@ -8,7 +8,7 @@
 PRODUCT_NAME = vachak
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.vachak.flutterUtilHub
+PRODUCT_BUNDLE_IDENTIFIER = com.armid.vachak
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2023 com.vachak. All rights reserved.

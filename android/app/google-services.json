@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "303451786596",
+    "project_id": "vachak-5ce71",
+    "storage_bucket": "vachak-5ce71.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:303451786596:android:ae1c1fdfed0e6e2a3b3e71",
+        "android_client_info": {
+          "package_name": "com.armid.vachak"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYjhMCdcAKTjLsxYRhza-4yB-dWvQRkps"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

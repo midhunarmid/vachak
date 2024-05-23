@@ -2,7 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vachak/core/data/models/auth_user_model.dart';
 import 'package:vachak/core/data/models/plain_response_model.dart';
+import 'package:vachak/core/domain/entities/va_language_entity.dart';
 import 'package:vachak/core/domain/usecases/authentication.dart';
+import 'package:vachak/core/domain/usecases/language.dart';
 import 'package:vachak/core/presentation/utils/constants.dart';
 import 'package:vachak/core/presentation/utils/message_generator.dart';
 import 'package:vachak/core/presentation/utils/my_app_exception.dart';
@@ -29,11 +31,18 @@ class AuthenticationBloc
             ),
           );
 
+          LanguageSelectionUseCase languageSelectionUseCase =
+              GetIt.instance<LanguageSelectionUseCase>();
+          List<VaLanguageEntity> languages =
+              await languageSelectionUseCase.getLanguages("ml");
+          debugPrint(languages.toString());
+
           AuthenticationUseCase getUserProfileUseCase =
               GetIt.instance<AuthenticationUseCase>();
 
           AuthUserModel authUserModel = await getUserProfileUseCase
               .authenticateUser(event.email, event.password);
+
           await delayedEmit(emit, AuthSignedInState(authUserModel));
         }
       } on MyAppException catch (ae) {
