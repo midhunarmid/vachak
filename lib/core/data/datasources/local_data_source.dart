@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:vachak/core/data/datasources/firebase_collections.dart';
 import 'package:vachak/core/data/models/va_language_model.dart';
+import 'package:vachak/main.dart';
 
 class LocalDataSource {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
@@ -25,15 +25,13 @@ class LocalDataSource {
 
     List<VaLanguageModel> resultList = [];
 
-    if (querySnapshotServer.docs.isEmpty) {
-      debugPrint("No records in cache");
-    } else {
+    if (querySnapshotServer.docs.isNotEmpty) {
       for (QueryDocumentSnapshot docSnapshot in querySnapshotServer.docs) {
         resultList.add(docSnapshot.data() as VaLanguageModel);
       }
     }
 
-    debugPrint("Cached items ${resultList.toString()}");
+    MyApp.debugPrint("Cached items ${resultList.toString()}");
 
     return resultList;
   }

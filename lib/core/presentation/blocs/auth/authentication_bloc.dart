@@ -9,6 +9,7 @@ import 'package:vachak/core/presentation/utils/constants.dart';
 import 'package:vachak/core/presentation/utils/message_generator.dart';
 import 'package:vachak/core/presentation/utils/my_app_exception.dart';
 import 'package:get_it/get_it.dart';
+import 'package:vachak/main.dart';
 
 part 'authentication_event.dart';
 part 'authentication_state.dart';
@@ -35,7 +36,7 @@ class AuthenticationBloc
               GetIt.instance<LanguageSelectionUseCase>();
           List<VaLanguageEntity> languages =
               await languageSelectionUseCase.getLanguages("ml");
-          debugPrint(languages.toString());
+          MyApp.debugPrint(languages.toString());
 
           AuthenticationUseCase getUserProfileUseCase =
               GetIt.instance<AuthenticationUseCase>();

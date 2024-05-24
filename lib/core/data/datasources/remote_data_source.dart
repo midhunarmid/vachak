@@ -1,13 +1,13 @@
 import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:vachak/core/data/datasources/firebase_collections.dart';
 import 'package:vachak/core/data/models/auth_user_model.dart';
 import 'package:vachak/core/data/models/va_language_model.dart';
 import 'package:vachak/core/presentation/utils/global.dart';
 import 'package:vachak/core/presentation/utils/message_generator.dart';
 import 'package:vachak/core/presentation/utils/my_app_exception.dart';
+import 'package:vachak/main.dart';
 
 // TODO
 // https://currentmillis.com/time/minutes-since-unix-epoch.php
@@ -55,7 +55,7 @@ class RemoteDataSource {
 
     String lastReceivedDocId =
         await GlobalValues.getLastReceivedDocId(collection: collection);
-    debugPrint("lastReceivedDocId $lastReceivedDocId");
+    MyApp.debugPrint("lastReceivedDocId $lastReceivedDocId");
 
     if (lastReceivedDocId.isNotEmpty) {
       DocumentSnapshot? lastReceivedDocSnapshot =
@@ -72,9 +72,7 @@ class RemoteDataSource {
 
     List<VaLanguageModel> resultList = [];
 
-    if (querySnapshotServer.docs.isEmpty) {
-      debugPrint("No updated records in server");
-    } else {
+    if (querySnapshotServer.docs.isNotEmpty) {
       for (QueryDocumentSnapshot docSnapshot in querySnapshotServer.docs) {
         resultList.add(docSnapshot.data() as VaLanguageModel);
       }
@@ -84,7 +82,7 @@ class RemoteDataSource {
           collection: collection, docId: lastVisibleDocId);
     }
 
-    debugPrint("Server items ${resultList.toString()}");
+    MyApp.debugPrint("Server items ${resultList.toString()}");
 
     return resultList;
   }
