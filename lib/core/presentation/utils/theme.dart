@@ -17,38 +17,38 @@ ThemeData getLightTheme() {
     brightness: Brightness.light,
     primaryColor: const Color(0xFF246BFD),
     textTheme: TextTheme(
-      titleSmall: GoogleFonts.caveat(
+      titleSmall: GoogleFonts.amaranth(
         textStyle: TextStyle(
             fontSize: 18.sp,
             fontWeight: FontWeight.bold,
             color: appColors.textColor),
       ),
-      headlineLarge: GoogleFonts.urbanist(
+      headlineLarge: GoogleFonts.amaranth(
           textStyle: TextStyle(
               fontSize: 22.sp,
               color: appColors.textColor,
               fontWeight: FontWeight.bold)),
-      headlineMedium: GoogleFonts.urbanist(
+      headlineMedium: GoogleFonts.amaranth(
           textStyle: TextStyle(
               fontSize: 20.sp,
               color: appColors.textColor,
               fontWeight: FontWeight.bold)),
-      headlineSmall: GoogleFonts.urbanist(
+      headlineSmall: GoogleFonts.amaranth(
           textStyle: TextStyle(
               fontSize: 18.sp,
               color: appColors.textColor,
               fontWeight: FontWeight.bold)),
-      labelLarge: GoogleFonts.urbanist(
+      labelLarge: GoogleFonts.amaranth(
           textStyle: TextStyle(
               fontSize: 16.sp,
               color: appColors.textColor,
               fontWeight: FontWeight.bold)),
-      labelMedium: GoogleFonts.urbanist(
+      labelMedium: GoogleFonts.amaranth(
           textStyle: TextStyle(
               fontSize: 14.sp,
               color: appColors.textColor,
               fontWeight: FontWeight.w500)),
-      labelSmall: GoogleFonts.urbanist(
+      labelSmall: GoogleFonts.amaranth(
           textStyle: TextStyle(
               fontSize: 12.sp,
               color: appColors.textColor,
@@ -64,38 +64,38 @@ ThemeData getDarkTheme() {
     brightness: Brightness.dark,
     primaryColor: const Color(0xFF246BFD),
     textTheme: TextTheme(
-      titleSmall: GoogleFonts.caveat(
+      titleSmall: GoogleFonts.amaranth(
         textStyle: TextStyle(
             fontSize: 18.sp,
             fontWeight: FontWeight.bold,
             color: appColors.textColor),
       ),
-      headlineLarge: GoogleFonts.urbanist(
+      headlineLarge: GoogleFonts.amaranth(
           textStyle: TextStyle(
               fontSize: 22.sp,
               color: appColors.textColor,
               fontWeight: FontWeight.bold)),
-      headlineMedium: GoogleFonts.urbanist(
+      headlineMedium: GoogleFonts.amaranth(
           textStyle: TextStyle(
               fontSize: 20.sp,
               color: appColors.textColor,
               fontWeight: FontWeight.bold)),
-      headlineSmall: GoogleFonts.urbanist(
+      headlineSmall: GoogleFonts.amaranth(
           textStyle: TextStyle(
               fontSize: 18.sp,
               color: appColors.textColor,
               fontWeight: FontWeight.bold)),
-      labelLarge: GoogleFonts.urbanist(
+      labelLarge: GoogleFonts.amaranth(
           textStyle: TextStyle(
               fontSize: 16.sp,
               color: appColors.textColor,
               fontWeight: FontWeight.bold)),
-      labelMedium: GoogleFonts.urbanist(
+      labelMedium: GoogleFonts.amaranth(
           textStyle: TextStyle(
               fontSize: 14.sp,
               color: appColors.textColor,
               fontWeight: FontWeight.w500)),
-      labelSmall: GoogleFonts.urbanist(
+      labelSmall: GoogleFonts.amaranth(
           textStyle: TextStyle(
               fontSize: 12.sp,
               color: appColors.textColor,
@@ -206,7 +206,7 @@ class AppColorsLight extends AppColors {
           textInputStyle: const TextStyle(color: Colors.black87),
           textInputLabelStyle: const TextStyle(color: Colors.black87),
           pleasantButtonTextStyle: const TextStyle(color: Colors.white),
-          appBarTextStyle: GoogleFonts.righteous(
+          appBarTextStyle: GoogleFonts.amaranth(
               textStyle: const TextStyle(color: Colors.black)),
           listDividerColor: Colors.grey[400] ?? Colors.grey,
           appBarIconTheme: const IconThemeData(
@@ -266,7 +266,7 @@ class AppColorsDark extends AppColors {
           textInputStyle: const TextStyle(color: Colors.white70),
           textInputLabelStyle: const TextStyle(color: Colors.white70),
           pleasantButtonTextStyle: const TextStyle(color: Colors.white),
-          appBarTextStyle: GoogleFonts.righteous(
+          appBarTextStyle: GoogleFonts.amaranth(
               textStyle: const TextStyle(color: Colors.white)),
           listDividerColor: Colors.grey[200] ?? Colors.grey,
           appBarIconTheme: const IconThemeData(

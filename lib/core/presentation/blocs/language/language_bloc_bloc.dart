@@ -1,33 +1,30 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vachak/core/data/models/auth_user_model.dart';
+import 'package:get_it/get_it.dart';
 import 'package:vachak/core/data/models/plain_response_model.dart';
 import 'package:vachak/core/domain/entities/va_language_entity.dart';
-import 'package:vachak/core/domain/usecases/authentication.dart';
 import 'package:vachak/core/domain/usecases/language.dart';
 import 'package:vachak/core/presentation/utils/constants.dart';
 import 'package:vachak/core/presentation/utils/message_generator.dart';
 import 'package:vachak/core/presentation/utils/my_app_exception.dart';
-import 'package:get_it/get_it.dart';
 import 'package:vachak/main.dart';
 
-part 'authentication_event.dart';
-part 'authentication_state.dart';
+part 'language_bloc_event.dart';
+part 'language_bloc_state.dart';
 
-class AuthenticationBloc
-    extends Bloc<AuthenticationEvent, AuthenticationState> {
-  AuthenticationBloc() : super(AuthenticationInitial()) {
-    on<AuthenticationEvent>((event, emit) async {
+class LanguageBloc extends Bloc<LanguageEvent, LanguageState> {
+  LanguageBloc() : super(LanguageBlocInitial()) {
+    on<LanguageEvent>((event, emit) async {
       try {
         appLogger.i(event);
-        if (event is AuthSignInEvent) {
+        if (event is GetLanguagesEvent) {
           emit.call(
-            LoadingState(
+            LanguageLoadingState(
               LoadingInfo(
-                icon: LoadingIconEnum.submitting,
-                title: MessageGenerator.getLabel("Signing In"),
-                message: MessageGenerator.getMessage(
-                    "Please wait while we sign in to the system."),
+                icon: LoadingIconEnum.fetching,
+                title: MessageGenerator.getLabel("LOAD_SOURCE_LANGUAGE_TITLE"),
+                message:
+                    MessageGenerator.getMessage("LOAD_SOURCE_LANGUAGE_DESC"),
               ),
             ),
           );
@@ -38,19 +35,13 @@ class AuthenticationBloc
               await languageSelectionUseCase.getLanguages("ml");
           MyApp.debugPrint(languages.toString());
 
-          AuthenticationUseCase getUserProfileUseCase =
-              GetIt.instance<AuthenticationUseCase>();
-
-          AuthUserModel authUserModel = await getUserProfileUseCase
-              .authenticateUser(event.email, event.password);
-
-          await delayedEmit(emit, AuthSignedInState(authUserModel));
+          await delayedEmit(emit, LanguageSuccessState(languages: languages));
         }
       } on MyAppException catch (ae) {
         appLogger.e(ae);
         await delayedEmit(
           emit,
-          AuthErrorState(
+          LanguageErrorState(
             MessageGenerator.getMessage(ae.title),
             MessageGenerator.getMessage(ae.message),
             StatusInfoIconEnum.error,
@@ -60,7 +51,7 @@ class AuthenticationBloc
         appLogger.e(e);
         await delayedEmit(
           emit,
-          AuthErrorState(
+          LanguageErrorState(
             MessageGenerator.getMessage("un-expected-error"),
             MessageGenerator.getMessage("un-expected-error-message"),
             StatusInfoIconEnum.error,
@@ -71,7 +62,7 @@ class AuthenticationBloc
   }
 
   Future<void> delayedEmit(
-      Emitter<AuthenticationState> emitter, AuthenticationState state) async {
+      Emitter<LanguageState> emitter, LanguageState state) async {
     await Future.delayed(const Duration(milliseconds: 500));
     emitter.call(state);
   }

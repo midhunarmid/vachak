@@ -6,6 +6,8 @@ class MessageGenerator {
       "auth-welcome": "Vachak - The Word Puzzle!",
       "auth-visit-site-guide":
           "To explore in-depth instructions for utilizing this rapid starter Flutter project, head over to https://github.com/midhunarmid/flutter_util_hub to kick off your journey.",
+    "LOAD_SOURCE_LANGUAGE_TITLE":"Preparing Your Language Options",
+    "LOAD_SOURCE_LANGUAGE_DESC":"Gathering languages for you to choose from. Please wait a moment as we set up your language learning journey!",
     }
   };
 
