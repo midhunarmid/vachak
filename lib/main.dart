@@ -3,7 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vachak/core/presentation/navigation/app_router.dart';
-import 'package:vachak/core/presentation/pages/signin_screen.dart';
+import 'package:vachak/core/presentation/pages/language_selection/language_selection_screen.dart';
+import 'package:vachak/core/presentation/pages/language_selection/language_type.dart';
 import 'package:vachak/core/presentation/utils/di.dart';
 import 'package:vachak/core/presentation/utils/theme.dart';
 import 'package:url_strategy/url_strategy.dart';
@@ -26,8 +27,12 @@ Future<void> main() async {
   );
 
   if (kIsWeb) {
-    await FirebaseFirestore.instance
-        .enablePersistence(const PersistenceSettings(synchronizeTabs: true));
+    try {
+      await FirebaseFirestore.instance
+          .enablePersistence(const PersistenceSettings(synchronizeTabs: true));
+    } catch (e) {
+      MyApp.debugPrint(e);
+    }
   }
 
   setPathUrlStrategy();
@@ -56,7 +61,9 @@ class MyApp extends StatelessWidget {
           darkTheme: appTheme,
         );
       },
-      child: const SigninScreen(),
+      child: const LanguageSelectionScreen(
+        languageType: LanguageType.source,
+      ),
     );
   }
 
