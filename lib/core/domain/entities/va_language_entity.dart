@@ -5,18 +5,16 @@ class VaLanguageEntity {
   final String? code;
   final String? name;
   final String? description;
-  final String? icon;
 
   const VaLanguageEntity({
     this.code,
     this.name,
     this.description,
-    this.icon,
   });
 
   @override
   String toString() {
-    return 'VaLanguageEntity(code: $code, name: $name, description: $description, icon: $icon)';
+    return 'VaLanguageEntity(code: $code, name: $name, description: $description)';
   }
 
   @override

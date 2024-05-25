@@ -27,9 +27,25 @@ class Responsive extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         if (constraints.maxWidth >= 1100) {
-          return desktop;
+          return Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/theme_bg.jpg"),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: desktop,
+          );
         } else if (constraints.maxWidth >= 650) {
-          return tablet;
+          return Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/theme_bg.jpg"),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: tablet,
+          );
         } else {
           return mobile;
         }

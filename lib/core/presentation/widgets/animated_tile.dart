@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:vachak/core/presentation/utils/theme.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AnimatedClickableTile extends StatefulWidget {
   final bool isActive;
-  final String iconSrc;
   final String title;
   final Color bgColor;
   final Color bgColorHover;
@@ -17,7 +15,6 @@ class AnimatedClickableTile extends StatefulWidget {
   const AnimatedClickableTile({
     Key? key,
     this.isActive = false,
-    this.iconSrc = "",
     required this.title,
     required this.press,
     required this.bgColor,
@@ -77,45 +74,44 @@ class _AnimatedClickableTileState extends State<AnimatedClickableTile> {
   Widget getMenuItem() {
     return Container(
       padding: const EdgeInsets.only(bottom: 5, right: 5),
-      child: Column(
+      child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          if (widget.iconSrc.isNotEmpty)
-            Image.asset(
-              widget.iconSrc,
-              height: 24,
-              fit: BoxFit.contain,
-              color: (widget.isActive || isHover)
-                  ? appColors.sideMenuHighlight
-                  : appColors.sideMenuNormal,
+          Container(
+            decoration: BoxDecoration(
+              color: widget.bgColorHover,
+              borderRadius: BorderRadius.circular(55.0),
             ),
-          if (widget.iconSrc.isNotEmpty) const SizedBox(width: 15),
-          if (widget.title.isNotEmpty)
-            Text(
-              widget.title,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                    color: (widget.isActive || isHover)
-                        ? widget.textColorHover
-                        : widget.textColor,
-                  ),
+            padding: const EdgeInsets.all(4.0),
+            height: 55.0,
+            width: 55.0,
+            child: Center(
+              child: Text(
+                widget.title,
+                style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                      color: (widget.isActive || isHover)
+                          ? widget.textColorHover
+                          : widget.textColor,
+                    ),
+              ),
             ),
-          if (widget.description.isNotEmpty)
-            Text(
-              widget.description,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                    fontSize: 10.sp,
-                    color: (widget.isActive || isHover)
-                        ? widget.textColorHover
-                        : widget.textColor,
-                  ),
-            ),
+          ),
+          const SizedBox(
+            width: 16,
+          ),
+          Text(
+            widget.description,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                  fontSize: 10.sp,
+                  color: (widget.isActive || isHover)
+                      ? widget.textColorHover
+                      : widget.textColor,
+                ),
+          ),
         ],
       ),
     );

@@ -11,14 +11,13 @@ class VaLanguageModel extends VaLanguageEntity {
     super.code,
     super.name,
     super.description,
-    super.icon,
     this.supports,
     this.lastUpdated,
   });
 
   @override
   String toString() {
-    return 'VaLanguageModel(code: $code, name: $name, description: $description, icon: $icon, supports: $supports, lastUpdated: $lastUpdated)';
+    return 'VaLanguageModel(code: $code, name: $name, description: $description, supports: $supports, lastUpdated: $lastUpdated)';
   }
 
   factory VaLanguageModel.fromMap(Map<String, dynamic> data) {
@@ -26,11 +25,11 @@ class VaLanguageModel extends VaLanguageEntity {
       code: data['code'] as String?,
       name: data['name'] as String?,
       description: data['description'] as String?,
-      icon: data['icon'] as String?,
       supports: data['supports'] != null
           ? List<String>.from(data['supports'] as List)
           : [],
-      lastUpdated: data['lastUpdated'] as int?,
+      lastUpdated:
+          data['lastUpdated'] != null ? data['lastUpdated'] as int? : 0,
     );
   }
 
@@ -47,7 +46,6 @@ class VaLanguageModel extends VaLanguageEntity {
       if (code != null) 'code': code,
       if (name != null) 'name': name,
       if (description != null) 'description': description,
-      if (icon != null) 'icon': icon,
       if (supports != null) 'supports': supports,
       if (lastUpdated != null) 'lastUpdated': lastUpdated,
     };

@@ -30,7 +30,7 @@ class TitleWidget extends StatelessWidget {
           if (iconSrc.isNotEmpty) const SizedBox(width: 15),
           Text(
             title,
-            style: Theme.of(context).textTheme.labelSmall?.copyWith(),
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(),
           ),
         ],
       ),

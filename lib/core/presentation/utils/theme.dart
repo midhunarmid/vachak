@@ -217,7 +217,7 @@ class AppColorsLight extends AppColors {
           disableBgColor: Colors.black54,
           sideMenuHighlight: Colors.black,
           sideMenuNormal: Colors.white38,
-          sideMenuDisable: Colors.white24,
+          sideMenuDisable: const Color(0x3CFFFFFF),
           sideMenuBg: const Color.fromARGB(255, 12, 16, 36),
           inputBgFill: const Color.fromRGBO(230, 230, 230, 1),
           rainbowColors: [
@@ -230,8 +230,8 @@ class AppColorsLight extends AppColors {
             Colors.purple,
           ],
           linkTextColor: Colors.red,
-          tileBgColor: Colors.white,
-          tileBgColorHover: const Color.fromRGBO(2, 67, 199, 1.0),
+          tileBgColor: const Color.fromRGBO(128, 108, 0, 0.3),
+          tileBgColorHover: const Color.fromRGBO(128, 108, 0, 1),
           tileTextColor: Colors.black87,
           tileTextColorHover: Colors.white,
         );
@@ -290,8 +290,8 @@ class AppColorsDark extends AppColors {
             Colors.purple,
           ],
           linkTextColor: Colors.red,
-          tileBgColor: Colors.black,
-          tileBgColorHover: const Color.fromRGBO(2, 67, 199, 1.0),
+          tileBgColor: const Color.fromRGBO(128, 108, 0, 0.3),
+          tileBgColorHover: const Color.fromRGBO(128, 108, 0, 1),
           tileTextColor: Colors.white,
           tileTextColorHover: Colors.white70,
         );
