@@ -22,7 +22,8 @@ class LanguageBloc extends Bloc<LanguageEvent, LanguageState> {
             LanguageLoadingState(
               LoadingInfo(
                 icon: LoadingIconEnum.fetching,
-                title: MessageGenerator.getLabel("LOAD_SOURCE_LANGUAGE_TITLE"),
+                title:
+                    MessageGenerator.getMessage("LOAD_SOURCE_LANGUAGE_TITLE"),
                 message:
                     MessageGenerator.getMessage("LOAD_SOURCE_LANGUAGE_DESC"),
               ),
