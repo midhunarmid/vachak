@@ -53,21 +53,16 @@ class RemoteDataSource {
       query = query.where("supports", arrayContains: supports);
     }
 
-    String lastReceivedDocId =
-        await GlobalValues.getLastReceivedDocId(collection: collection);
-    MyApp.debugPrint("lastReceivedDocId $lastReceivedDocId");
-
-    if (lastReceivedDocId.isNotEmpty) {
-      DocumentSnapshot? lastReceivedDocSnapshot =
-          await _db.collection(collection).doc(lastReceivedDocId).get();
-      query = query.startAfterDocument(lastReceivedDocSnapshot);
-    }
+    int lastUpdated =
+        await GlobalValues.getLastUpdatedTime(collection: collection);
+    MyApp.debugPrint("getLastUpdatedTime $lastUpdated");
 
     QuerySnapshot<VaLanguageModel> querySnapshotServer = await query
         .withConverter(
           fromFirestore: VaLanguageModel.fromFirestore,
           toFirestore: (VaLanguageModel data, _) => data.toMap(),
         )
+        .where("lastUpdated", isGreaterThan: lastUpdated)
         .get(const GetOptions(source: Source.server));
 
     List<VaLanguageModel> resultList = [];
@@ -76,10 +71,10 @@ class RemoteDataSource {
       for (QueryDocumentSnapshot docSnapshot in querySnapshotServer.docs) {
         resultList.add(docSnapshot.data() as VaLanguageModel);
       }
-      String lastVisibleDocId =
-          querySnapshotServer.docs[querySnapshotServer.size - 1].id;
-      await GlobalValues.setLastReceivedDocId(
-          collection: collection, docId: lastVisibleDocId);
+
+      await GlobalValues.setLastUpdatedTime(
+          collection: collection,
+          lastUpdateTime: DateTime.now().millisecondsSinceEpoch);
     }
 
     MyApp.debugPrint("Server items ${resultList.toString()}");

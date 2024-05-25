@@ -1,15 +1,14 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class GlobalValues {
-  static Future<void> setLastReceivedDocId(
-      {required String collection, required String docId}) async {
+  static Future<void> setLastUpdatedTime(
+      {required String collection, required int lastUpdateTime}) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString(collection, docId);
+    prefs.setInt(collection, lastUpdateTime);
   }
 
-  static Future<String> getLastReceivedDocId(
-      {required String collection}) async {
+  static Future<int> getLastUpdatedTime({required String collection}) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString(collection) ?? "";
+    return prefs.getInt(collection) ?? 0;
   }
 }
