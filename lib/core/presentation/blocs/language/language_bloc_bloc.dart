@@ -25,7 +25,7 @@ class LanguageBloc extends Bloc<LanguageEvent, LanguageState> {
                 title:
                     MessageGenerator.getMessage("LOAD_SOURCE_LANGUAGE_TITLE"),
                 message:
-                    MessageGenerator.getMessage("LOAD_SOURCE_LANGUAGE_DESC"),
+                    MessageGenerator.getMessage("LOAD_SOURCE_LANGUAGE_DESC"), 
               ),
             ),
           );
